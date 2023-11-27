@@ -1,5 +1,7 @@
 .link {
   text-decoration: none;
+  display: block;
+  text-align: center;
 
   &:hover {
     filter: contrast(60%);

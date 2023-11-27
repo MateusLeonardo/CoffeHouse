@@ -1,0 +1,44 @@
+.main {
+  height: calc(100vh - 98px);
+  background: url('../../assets/chicara.jpg') no-repeat;
+  background-position: right;
+  object-fit: cover;
+  background-size: cover;
+
+  .container {
+    margin-left: 10rem;
+    padding-top: 10rem;
+    max-width: 32.688rem;
+  }
+  
+  .content {
+    background: #c7c3c0;
+    border-radius: .7rem;
+    padding: 4rem 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-family: 'Amatic SC', sans-serif;
+      text-align: center;
+      font-size: 4.5rem;
+    }
+
+    p {
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    a {
+      font-family: 'Roboto', sans-serif;
+      background-image: linear-gradient(-180deg, #a76d1e 0%, #a76d1e 100%);
+    }
+
+  }
+}

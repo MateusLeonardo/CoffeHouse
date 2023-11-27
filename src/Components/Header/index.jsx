@@ -7,7 +7,7 @@ export function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <p>
-          Coffe <br /> House
+          Coffee <br /> House
         </p>
 
         <ul>

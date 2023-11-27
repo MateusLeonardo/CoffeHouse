@@ -7,6 +7,7 @@ export function LinkButton({
   color,
   padding,
   fontSize,
+  borderRadius,
 }) {
   return (
     <a
@@ -17,6 +18,7 @@ export function LinkButton({
         color: color,
         padding: padding,
         fontSize: fontSize,
+        borderRadius: borderRadius
       }}
     >
       {children}
