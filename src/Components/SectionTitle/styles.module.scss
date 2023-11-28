@@ -1,0 +1,35 @@
+.container {
+  max-width: max-content;
+  margin: 0 auto;
+
+  .title {
+    text-align: center;
+    position: relative;
+    font-family: 'Amatic SC', sans-serif;
+    font-size: 4.2rem;
+    margin-top: 140px;
+
+    &::before {
+      position: absolute;
+      left: -120px;
+      top: 50%;
+      content: '';
+      display: inline-block;
+      width: 100px;
+      height: 2px;
+      background: #000000;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: -120px;
+      content: '';
+      display: inline-block;
+      width: 100px;
+      height: 2px;
+      background: #000000;
+    }
+  }
+
+}

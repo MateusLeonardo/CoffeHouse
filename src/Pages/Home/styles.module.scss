@@ -28,7 +28,6 @@
     }
 
     p {
-      font-family: 'Roboto', sans-serif;
       text-align: center;
       padding-top: 2rem;
       padding-bottom: 2rem;
@@ -36,9 +35,52 @@
     }
 
     a {
-      font-family: 'Roboto', sans-serif;
       background-image: linear-gradient(-180deg, #a76d1e 0%, #a76d1e 100%);
     }
 
+  }
+}
+
+.aboutsCoffee {
+  background: #fffcf6;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.30);
+    border-radius: 8px;
+    
+    div {
+      margin-top: -50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      flex: 1;
+      height: 185px;
+
+      background: #ffffff;
+
+      &:first-child {
+        border-radius: 8px 0 0 8px;
+      }
+
+      &:last-child {
+        border-radius: 0 8px 8px 0;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      span {
+        display: block;
+        font-size: .975rem;
+      }
+    }
   }
 }
