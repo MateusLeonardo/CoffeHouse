@@ -6,6 +6,11 @@ import styles from "./styles.module.scss";
 import { CiFaceSmile, CiCalendarDate } from "react-icons/ci";
 import { PiCoffeeThin } from "react-icons/pi";
 
+import mulherTomandoCafe from '../../assets/mulherTomandoCafé.png'
+import { CardMenu } from "../../Components/CardMenu";
+import { menuItems } from "../../../ArrayMenuItens";
+
+
 export function Home() {
   return (
     <>
@@ -35,12 +40,12 @@ export function Home() {
       <section className={styles.aboutsCoffee}>
         <div className={styles.container}>
           <div>
-            <CiFaceSmile size={50} color="#b77820"/>
+            <CiFaceSmile size={50} color="#b77820" />
             <h2>5k+</h2>
             <span>Clientes Satisfeitos</span>
           </div>
           <div>
-            <PiCoffeeThin size={50} color="#b77820"/>
+            <PiCoffeeThin size={50} color="#b77820" />
             <h2>70k+</h2>
             <span>Copos de Café Preparados</span>
           </div>
@@ -52,7 +57,31 @@ export function Home() {
         </div>
       </section>
 
-      <SectionTitle title="Sobre nós"/>
+      <SectionTitle title="Sobre nós" />
+
+      <section className={styles.sobre}>
+        <div className={styles.content}>
+        <h2>Café preparado com amor</h2>
+        <p>
+          Na Coffe House somos apaixonados por servir aos nossos clientes
+          deliciosos cafés, doces e guloseimas em um ambiente caloroso e
+          acolhedor. nosso café foi fundado com a visão de criar um espaço
+          comunitário com bebidas e lanches de qualidade.
+        </p>
+        <p className={styles.horarioFuncionamento}>Horario de funcionamento:</p>
+        <span>Segunda à sexta: 08:00am - 18:00pm</span>
+        <span>Sábado: 08:00am - 14:00pm</span>
+        <span>Domingo: Fechado</span>
+        </div>
+        <div className={styles.foto}>
+          <img src={mulherTomandoCafe} alt="" />
+        </div>
+      </section>
+
+      <SectionTitle title="Menu" />
+
+      <CardMenu menuItems={menuItems}/>
+
     </>
   );
 }
