@@ -6,10 +6,11 @@ import styles from "./styles.module.scss";
 import { CiFaceSmile, CiCalendarDate } from "react-icons/ci";
 import { PiCoffeeThin } from "react-icons/pi";
 
-import mulherTomandoCafe from '../../assets/mulherTomandoCafé.png'
+import mulherTomandoCafe from "../../assets/mulherTomandoCafé.png";
 import { CardMenu } from "../../Components/CardMenu";
 import { menuItems } from "../../../ArrayMenuItens";
-
+import cafeEvento1 from "../../assets/cafeEvento1.jpg";
+import cafeEvento2 from "../../assets/cafeEvento2.jpg";
 
 export function Home() {
   return (
@@ -61,17 +62,19 @@ export function Home() {
 
       <section className={styles.sobre}>
         <div className={styles.content}>
-        <h2>Café preparado com amor</h2>
-        <p>
-          Na Coffe House somos apaixonados por servir aos nossos clientes
-          deliciosos cafés, doces e guloseimas em um ambiente caloroso e
-          acolhedor. nosso café foi fundado com a visão de criar um espaço
-          comunitário com bebidas e lanches de qualidade.
-        </p>
-        <p className={styles.horarioFuncionamento}>Horario de funcionamento:</p>
-        <span>Segunda à sexta: 08:00am - 18:00pm</span>
-        <span>Sábado: 08:00am - 14:00pm</span>
-        <span>Domingo: Fechado</span>
+          <h2>Café preparado com amor</h2>
+          <p>
+            Na Coffe House somos apaixonados por servir aos nossos clientes
+            deliciosos cafés, doces e guloseimas em um ambiente caloroso e
+            acolhedor. nosso café foi fundado com a visão de criar um espaço
+            comunitário com bebidas e lanches de qualidade.
+          </p>
+          <p className={styles.horarioFuncionamento}>
+            Horario de funcionamento:
+          </p>
+          <span>Segunda à sexta: 08:00am - 18:00pm</span>
+          <span>Sábado: 08:00am - 14:00pm</span>
+          <span>Domingo: Fechado</span>
         </div>
         <div className={styles.foto}>
           <img src={mulherTomandoCafe} alt="" />
@@ -80,8 +83,39 @@ export function Home() {
 
       <SectionTitle title="Menu" />
 
-      <CardMenu menuItems={menuItems}/>
+      <CardMenu menuItems={menuItems} />
 
+      <SectionTitle title="Eventos futuros" />
+
+      <section className={styles.eventos}>
+        <div className={styles.content}>
+          <div className={styles.img}>
+            <img src={cafeEvento1} alt="Evento de café" />
+            <span>8 dezembro</span>
+          </div>
+          <h3>Degustação de cafés</h3>
+          <p>
+            Você é apaixonado por café ou simplesmente curioso para explorar
+            mais sobre essa bebida incrível? Junte-se a nós para uma experiência
+            sensorial única em nossa Degustação de Café!
+          </p>
+          <button>Saiba mais</button>
+        </div>
+        <div className={styles.content}>
+          <div className={styles.img}>
+            <img src={cafeEvento2} alt="Evento de café" />
+            <span>22 dezembro</span>
+          </div>
+          <h3>Show Ao Vivo!</h3>
+          <p>
+            Desfrute de uma noite de música ao vivo em nossa cafeteria! Venha
+            curtir talentosos artistas locais apresentando uma variedade de
+            estilos musicais, enquanto desfruta de um ambiente acolhedor e
+            deliciosas opções de bebidas.
+          </p>
+          <button>Saiba mais</button>
+        </div>
+      </section>
     </>
   );
 }
