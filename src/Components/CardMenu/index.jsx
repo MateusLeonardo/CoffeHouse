@@ -2,7 +2,6 @@ import styles from "./styles.module.scss";
 import { MenuItem } from "../MenuItem";
 
 export function CardMenu({ menuItems }) {
-  console.log('Items', menuItems)
   return (
     <div className={styles.bg}>
       <div className={styles.container}>

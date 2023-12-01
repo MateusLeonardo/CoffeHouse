@@ -204,3 +204,29 @@
     }
   }
 }
+
+.slider {
+  padding: 3.5rem 0;
+  width: 100%;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 500px;
+    height: 750px;
+    background: url('../../assets/GraoCafe.png') no-repeat center;
+    top: 0;
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 500px;
+    height: 750px;
+    background: url('../../assets/GraoCafe.png') no-repeat center;
+    top: 0;
+    right: 0;
+  }
+}

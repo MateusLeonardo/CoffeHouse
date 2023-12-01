@@ -12,6 +12,8 @@ import { menuItems } from "../../../ArrayMenuItens";
 import cafeEvento1 from "../../assets/cafeEvento1.jpg";
 import cafeEvento2 from "../../assets/cafeEvento2.jpg";
 import { useState } from "react";
+import { Slider } from "../../Components/Slider";
+import { data } from "../../../SliderImgs";
 
 export function Home() {
   const [selectedCategory, setSelectedCategory] = useState("sanduiche");
@@ -145,6 +147,14 @@ export function Home() {
           <button>Saiba mais</button>
         </div>
       </section>
+
+      <SectionTitle title="Galeria" />
+
+      <div className={styles.slider}>
+        <Slider data={data} />
+      </div>
+
+      <SectionTitle title="Sobre nós" />
     </>
   );
 }
