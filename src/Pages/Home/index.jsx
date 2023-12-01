@@ -11,8 +11,15 @@ import { CardMenu } from "../../Components/CardMenu";
 import { menuItems } from "../../../ArrayMenuItens";
 import cafeEvento1 from "../../assets/cafeEvento1.jpg";
 import cafeEvento2 from "../../assets/cafeEvento2.jpg";
+import { useState } from "react";
 
 export function Home() {
+  const [selectedCategory, setSelectedCategory] = useState('sanduiche');
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <>
       <Header />
@@ -83,7 +90,14 @@ export function Home() {
 
       <SectionTitle title="Menu" />
 
-      <CardMenu menuItems={menuItems} />
+      <div className={styles.containerMenu}>
+        <div className={styles.button}>
+          <button onClick={() => handleCategoryClick('sanduiche')}>Sanduiches</button>
+          <button onClick={() => handleCategoryClick('cafe')}>Cafés</button>
+          <button onClick={() => handleCategoryClick('pastel')}>Pastéis</button>
+        </div>
+        <CardMenu menuItems={menuItems[selectedCategory]} />
+      </div>
 
       <SectionTitle title="Eventos futuros" />
 
