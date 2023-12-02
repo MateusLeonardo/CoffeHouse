@@ -14,6 +14,7 @@ import cafeEvento2 from "../../assets/cafeEvento2.jpg";
 import { useState } from "react";
 import { Slider } from "../../Components/Slider";
 import { data } from "../../../SliderImgs";
+import { Footer } from "../../Components/Footer";
 
 export function Home() {
   const [selectedCategory, setSelectedCategory] = useState("sanduiche");
@@ -154,7 +155,8 @@ export function Home() {
         <Slider data={data} />
       </div>
 
-      <SectionTitle title="Sobre nós" />
+      <Footer />
+
     </>
   );
 }

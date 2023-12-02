@@ -215,18 +215,19 @@
     content: '';
     display: block;
     width: 500px;
-    height: 750px;
+    height: 400px;
     background: url('../../assets/GraoCafe.png') no-repeat center;
-    top: 0;
+    top: 6rem;
   }
   &::after {
     position: absolute;
     content: '';
     display: block;
     width: 500px;
-    height: 750px;
+    height: 400px;
     background: url('../../assets/GraoCafe.png') no-repeat center;
-    top: 0;
+    top: 6rem;
     right: 0;
+    z-index: -1;
   }
 }
