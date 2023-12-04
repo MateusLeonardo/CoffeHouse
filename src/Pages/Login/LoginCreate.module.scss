@@ -1,50 +1,16 @@
 .container {
   width: 30rem;
 
-  .login,
-  .cadastro {
+  .criarConta {
     font-size: 2rem;
     padding-bottom: 2rem;
     font-family: "Playfair Display", serif;
   }
-  .cadastro {
-    margin-top: 3rem;
-  }
-
-  .linkCadastro {
-    display: inline-block;
-    margin-top: 1rem;
-    background: #241513;
-    color: #fff;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    font-weight: bold;
-
-    &:hover {
-      filter: brightness(90%);
-    }
-  }
-
-  .perdeu {
-    font-size: 1.2rem;
-    display: inline-block;
-    margin-top: 1rem;
-    position: relative;
-
-    &::after {
-      position: absolute;
-      display: block;
-      content: '';
-      width: 100%;
-      height: 2px;
-      background: #241513;
-    }
-  }
-  
 }
 
 .form {
   margin-bottom: 2rem;
+  
   label {
     display: block;
     font-size: 1.1rem;
@@ -62,7 +28,6 @@
     border: 2px solid transparent;
     transition: border 0.2s ease;
 
-
     &:hover {
       border: 2px solid #241513;
     }
@@ -71,7 +36,7 @@
   button {
     padding: 0.875rem 3rem;
     border-radius: 8px;
-    border:none;
+    border: none;
     background: #241513;
     color: #fff;
     font-size: 1rem;

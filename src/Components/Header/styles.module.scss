@@ -24,12 +24,15 @@
     a {
       font-weight: bold;
       font-family: 'Roboto', sans-serif;
+      font-size: 1.3rem;
+      padding: 10px 15px;
+      color: #C7C3C0;
     }
   }
 
   div {
     display: flex;
-    gap: 10px;
+    gap: 1.5rem;
 
     button {
       padding: 10px;

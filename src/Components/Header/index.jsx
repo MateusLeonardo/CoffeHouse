@@ -13,65 +13,29 @@ export function Header() {
 
         <ul>
           <li>
-            <Link to="/">
-              <LinkButton
-                children="Home"
-                color="#C7C3C0"
-                fontSize="1.3rem"
-                padding="10px 15px"
-              />
-            </Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <LinkButton
-              href="/"
-              children="Menu"
-              color="#C7C3C0"
-              fontSize="1.3rem"
-              padding="10px 15px"
-            />
+            <Link to="menu">Menu</Link>
           </li>
           <li>
-            <LinkButton
-              href="/"
-              children="Eventos"
-              color="#C7C3C0"
-              fontSize="1.3rem"
-              padding="10px 15px"
-            />
+            <Link to="eventos">Eventos</Link>
           </li>
           <li>
-            <LinkButton
-              href="/"
-              children="Galeria"
-              color="#C7C3C0"
-              fontSize="1.3rem"
-              padding="10px 15px"
-            />
+            <Link to="galeria">Galeria</Link>
           </li>
           <li>
-            <LinkButton
-              href="/"
-              children="Reviews"
-              color="#C7C3C0"
-              fontSize="1.3rem"
-              padding="10px 15px"
-            />
+            <Link to="reviews">Reviews</Link>
           </li>
         </ul>
 
         <div>
-          <button>
-            <FiSearch size={23} color="#C7C3C0" />
-          </button>
-          <button>
+          <Link to="/carrinho">
             <FiShoppingCart size={23} color="#C7C3C0" />
-          </button>
-          <button>
-            <Link to="/login">
-              <FiUser size={23} color="#C7C3C0" />
-            </Link>
-          </button>
+          </Link>
+          <Link to="/login">
+            <FiUser size={23} color="#C7C3C0" />
+          </Link>
         </div>
       </div>
     </header>
