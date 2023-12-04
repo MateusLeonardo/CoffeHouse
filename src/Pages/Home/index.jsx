@@ -1,4 +1,3 @@
-import { Header } from "../../Components/Header";
 import { LinkButton } from "../../Components/LinkButton";
 import { SectionTitle } from "../../Components/SectionTitle";
 import styles from "./styles.module.scss";
@@ -25,7 +24,6 @@ export function Home() {
 
   return (
     <>
-      <Header />
       <main className={styles.main}>
         <div className={styles.container}>
           <div className={styles.content}>

@@ -1,0 +1,32 @@
+.login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100vh - 98px);
+  gap: 2rem;
+}
+
+.login::before {
+  display: block;
+  content: '';
+  background: url('https://images.unsplash.com/photo-1459755486867-b55449bb39ff?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+}
+.form {
+  display: flex;  
+  justify-content: flex-start;
+  margin-top: 15vh;
+  height: max-content;
+}
+
+@media(max-width: 768px) {
+  .login {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .login::before {
+    display: none;
+  }
+  .form {
+    margin-top: 1rem;
+  }
+}

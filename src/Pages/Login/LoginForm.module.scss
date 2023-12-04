@@ -1,0 +1,62 @@
+.container {
+  background: #fff;
+  border-radius: 10px;
+  width: 30rem;
+
+  .login,
+  .cadastro {
+    font-size: 2rem;
+    padding-bottom: 2rem;
+    font-family: "Playfair Display", serif;
+  }
+  .cadastro {
+    margin-top: 3rem;
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #241513;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+
+    &:hover {
+      filter: brightness(90%);
+    }
+  }
+  
+}
+
+.form {
+  margin-bottom: 2rem;
+  label {
+    display: block;
+    font-size: 1.1rem;
+    color: #424242;
+  }
+
+  input {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: none;
+    background: #eeeeee;
+  }
+
+  button {
+    padding: 0.875rem 3rem;
+    border-radius: 8px;
+    border:none;
+    background: #241513;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(90%);
+    }
+  }
+}
