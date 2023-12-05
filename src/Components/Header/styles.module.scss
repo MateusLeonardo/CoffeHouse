@@ -27,6 +27,10 @@
       font-size: 1.3rem;
       padding: 10px 15px;
       color: #C7C3C0;
+
+      &:hover {
+        filter: brightness(80%);
+      }
     }
   }
 
@@ -34,12 +38,8 @@
     display: flex;
     gap: 1.5rem;
 
-    button {
+    a {
       padding: 10px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-
       &:hover {
         filter: brightness(85%);
       }
