@@ -1,5 +1,3 @@
-// src/api/mirageServer.js
-
 import { createServer, Model, Response } from 'miragejs';
 
 export function makeServer({ environment = 'development' } = {}) {
