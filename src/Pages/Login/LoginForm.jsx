@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./LoginForm.module.scss";
 import { useState } from "react";
 import axios from "axios";
@@ -7,6 +7,8 @@ export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -20,6 +22,7 @@ export function LoginForm() {
       if(response.status === 200) {
         setError('')
         console.log('Login successful')
+        navigate("/dashboard")
       } else {
         setError(response.data.message || 'Erro ao fazer login')
       }
@@ -27,7 +30,6 @@ export function LoginForm() {
       setError('Erro ao fazer login')
      }
   };
-
 
   return (
     <div className={styles.container}>
