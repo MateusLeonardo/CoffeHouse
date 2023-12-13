@@ -5,11 +5,11 @@ export function makeServer({ environment = 'development' } = {}) {
     environment,
 
     models: {
+      // Corrigindo para singular 'user' ao invés de 'users'
       user: Model,
     },
 
     seeds(server) {
-      server.create('user', { email: 'user@example.com', password: 'password123' });
       server.create('user', { email: 'mateus_leonardo1997@hotmail.com', password: '123' })
     },
 
@@ -28,7 +28,6 @@ export function makeServer({ environment = 'development' } = {}) {
       });
 
       this.post('/logout', () => {
-
         return { message: 'Usuário deslogado' };
       });
     },

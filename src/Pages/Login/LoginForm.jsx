@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./LoginForm.module.scss";
 import { useState } from "react";
 import axios from "axios";
@@ -7,7 +7,8 @@ import { useAuth } from "../../Components/AuthContext";
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {login} = useAuth
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
 
   const handleLogin = async (e) => {
@@ -19,10 +20,8 @@ export function LoginForm() {
         password,
       });
       console.log("Usuário autenticado:", response.data);
-      if (response && response.data && response.data.token) {
-        console.log("Usuário autenticado:", response);
-        login();
-      }
+      login()
+      navigate('/dashboard')
     } catch (error) {
       console.error("Erro no login:", error.response.data.error);
     }
