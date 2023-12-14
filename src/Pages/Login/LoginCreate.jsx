@@ -1,17 +1,60 @@
-import styles from './LoginCreate.module.scss'
+import { useEffect, useState } from "react";
+import styles from "./LoginCreate.module.scss";
+import axios from "axios";
 export function LoginCreate() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailExists, setEmailExists] = useState(false);
+
+  useEffect(() => {
+    const checkEmailExists = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/user?email=${email}`);
+        setEmailExists(response.data.length > 0); 
+      } catch (error) {
+        console.error("Erro ao verificar email:", error);
+      }
+    };
+
+    if (email !== "") {
+      checkEmailExists();
+    }
+  }, [email]);
+
+  const handleCreateLogin = async (event) => {
+    event.preventDefault();
+
+    // Verificar se o email já existe antes de criar o usuário
+    if (emailExists) {
+      return;
+    }
+
+    try {
+      const response = await axios.post('http://localhost:3000/user', {
+        name,
+        email,
+        password
+      });
+      console.log("User created:", response.data); // Exibe os dados do novo usuário criado
+    } catch (error) {
+      console.error("Erro ao criar usuário:", error);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <h1 className={styles.criarConta}>Crie sua conta</h1>
-      <form className={styles.form}>
+      <form onSubmit={handleCreateLogin} className={styles.form}>
         <label htmlFor="name">Nome</label>
-        <input type="text" id="name"/>
-        <label htmlFor="email" >Email</label>
-        <input type="email" id="email" placeholder="example@email.com"/>
+        <input type="text" id="name" value={name} onChange={({target}) => setName(target.value)}/>
+        <label htmlFor="email">Email</label>
+        <input type="email" id="email" placeholder="example@email.com" value={email} onChange={({target}) => setEmail(target.value)}/>
+        {emailExists && <p>Email já está em uso.</p>}
         <label htmlFor="password">Senha</label>
-        <input type="password" id="password" />
+        <input type="password" id="password" value={password} onChange={({target}) => setPassword(target.value)}/>
         <button type="submit">Criar conta</button>
       </form>
     </div>
-  )
+  );
 }

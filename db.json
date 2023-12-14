@@ -2,18 +2,15 @@
   "user": [
     {
       "id": 1,
+      "name": "mateus leonardo",
       "email": "mateus_leonardo1997@hotmail.com",
       "password": "123"
     },
     {
-      "id": 2,
-      "email": "mateus_@hotmail.com",
-      "password": "123"
-    },
-    {
-      "id": 1,
-      "email": "mateus_leonardo@hotmail.com",
-      "password": "123"
+      "name": "mateus",
+      "email": "mateus@hotmail.com",
+      "password": "123",
+      "id": 2
     }
   ]
 }
