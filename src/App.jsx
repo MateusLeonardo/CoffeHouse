@@ -3,27 +3,25 @@ import { Home } from "./Pages/Home";
 import { Login } from "./Pages/Login/Login";
 import { Header } from "./Components/Header";
 import { Dashboard } from "./Pages/Dashboard/Dashboard";
-import { AuthProvider, useAuth } from "./Components/AuthContext";
-
+import ProtectedRoute from "./Components/Helper/ProtectedRoute";
 
 const App = () => {
-  const { isLoggedIn } = useAuth();
-
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login/*" element={<Login />} />
-          {isLoggedIn ? (
-            <Route path="/dashboard" element={<Dashboard />} />
-          ) : (
-            <Route path="/dashboard" element={<Navigate to="/login" /> } />
-          )}
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login/*" element={<Login />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

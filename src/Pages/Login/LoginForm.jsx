@@ -10,20 +10,23 @@ export function LoginForm() {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/api/user", {
-        email,
-        password,
-      });
-      console.log("Usuário autenticado:", response.data);
-      login()
-      navigate('/dashboard')
+      const response = await axios.get(
+        `http://localhost:3000/user?email=${email}&password=${password}`
+      );
+      if (response.data.length > 0) {
+        const user = response.data[0];
+        console.log("Usuário encontrado: " + user);
+        navigate("/dashboard");
+        login()
+      } else {
+        console.log("Usuário não encontrado");
+      }
     } catch (error) {
-      console.error("Erro no login:", error.response.data.error);
+      console.error("Erro no login:", error);
     }
   };
 
