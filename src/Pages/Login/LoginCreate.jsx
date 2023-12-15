@@ -1,23 +1,27 @@
 import { useEffect, useState } from "react";
 import styles from "./LoginCreate.module.scss";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export function LoginCreate() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailExists, setEmailExists] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const checkEmailExists = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/user?email=${email}`);
-        setEmailExists(response.data.length > 0); 
+        const response = await axios.get(
+          `http://localhost:3000/user?email=${email}`
+        );
+        setEmailExists(response.data.length > 0);
       } catch (error) {
         console.error("Erro ao verificar email:", error);
       }
     };
 
-    if (email !== "") {
+    if (email.length > 0 && email.includes("@") && email.includes(".com")) {
       checkEmailExists();
     }
   }, [email]);
@@ -31,10 +35,10 @@ export function LoginCreate() {
     }
 
     try {
-      const response = await axios.post('http://localhost:3000/user', {
+      const response = await axios.post("http://localhost:3000/user", {
         name,
         email,
-        password
+        password,
       });
       console.log("User created:", response.data); // Exibe os dados do novo usuário criado
     } catch (error) {
@@ -47,12 +51,28 @@ export function LoginCreate() {
       <h1 className={styles.criarConta}>Crie sua conta</h1>
       <form onSubmit={handleCreateLogin} className={styles.form}>
         <label htmlFor="name">Nome</label>
-        <input type="text" id="name" value={name} onChange={({target}) => setName(target.value)}/>
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={({ target }) => setName(target.value)}
+        />
         <label htmlFor="email">Email</label>
-        <input type="email" id="email" placeholder="example@email.com" value={email} onChange={({target}) => setEmail(target.value)}/>
+        <input
+          type="email"
+          id="email"
+          placeholder="example@email.com"
+          value={email}
+          onChange={({ target }) => setEmail(target.value)}
+        />
         {emailExists && <p>Email já está em uso.</p>}
         <label htmlFor="password">Senha</label>
-        <input type="password" id="password" value={password} onChange={({target}) => setPassword(target.value)}/>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={({ target }) => setPassword(target.value)}
+        />
         <button type="submit">Criar conta</button>
       </form>
     </div>

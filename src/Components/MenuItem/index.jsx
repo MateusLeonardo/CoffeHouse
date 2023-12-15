@@ -1,4 +1,4 @@
-import { FaStar } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa";
 import styles from "./styles.module.scss";
 
 export function MenuItem({ response }) {

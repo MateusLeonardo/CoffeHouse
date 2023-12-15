@@ -7,20 +7,33 @@ import { PiCoffeeThin } from "react-icons/pi";
 
 import mulherTomandoCafe from "../../assets/mulherTomandoCafé.png";
 import { CardMenu } from "../../Components/CardMenu";
-import { menuItems } from "../../../ArrayMenuItens";
 import cafeEvento1 from "../../assets/cafeEvento1.jpg";
 import cafeEvento2 from "../../assets/cafeEvento2.jpg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Slider } from "../../Components/Slider";
 import { data } from "../../../SliderImgs";
 import { Footer } from "../../Components/Footer";
+import axios from "axios";
 
 export function Home() {
   const [selectedCategory, setSelectedCategory] = useState("sanduiche");
+  const [itemsMenu, setItemsMenu] = useState([])
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
+  useEffect(() => {
+    async function getMenuItems() {
+      try {
+        const response = await axios.get(`http://localhost:3000/${selectedCategory}`)
+        setItemsMenu(response.data)
+        console.log(response.data)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getMenuItems()
+  },[selectedCategory])
 
   return (
     <>
@@ -112,7 +125,7 @@ export function Home() {
             Pastéis
           </button>
         </div>
-        <CardMenu menuItems={menuItems[selectedCategory]} />
+        <CardMenu menuItems={itemsMenu && itemsMenu} />
       </div>
 
       <SectionTitle title="Eventos futuros" />

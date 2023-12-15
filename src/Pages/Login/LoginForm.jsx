@@ -7,6 +7,7 @@ import { useAuth } from "../../Components/AuthContext";
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userFound, setUserFound] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -24,6 +25,7 @@ export function LoginForm() {
         login()
       } else {
         console.log("Usuário não encontrado");
+        setUserFound(true);
       }
     } catch (error) {
       console.error("Erro no login:", error);
@@ -51,6 +53,7 @@ export function LoginForm() {
           id="password"
           required
         />
+        {userFound && <p>Email ou Senha inválidos</p>}
         <button type="submit">Entrar</button>
       </form>
 
