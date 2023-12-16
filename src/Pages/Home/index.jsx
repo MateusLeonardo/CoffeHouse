@@ -22,6 +22,7 @@ export function Home() {
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
+  
   useEffect(() => {
     async function getMenuItems() {
       try {

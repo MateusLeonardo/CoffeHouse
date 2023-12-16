@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { LinkButton } from "../LinkButton";
 import styles from "./styles.module.scss";
-import { FiSearch, FiShoppingCart, FiUser } from "react-icons/fi";
+import { FiShoppingCart, FiUser } from "react-icons/fi";
+import { Badge } from "antd";
+import { useCart } from "../CartContext/CartContext";
 
 export function Header() {
+  const { cartSize } = useCart();
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -31,7 +33,9 @@ export function Header() {
 
         <div>
           <Link to="/carrinho">
-            <FiShoppingCart size={23} color="#C7C3C0" />
+            <Badge size="small" count={cartSize}>
+              <FiShoppingCart size={23} color="#C7C3C0" />
+            </Badge>
           </Link>
           <Link to="/login">
             <FiUser size={23} color="#C7C3C0" />

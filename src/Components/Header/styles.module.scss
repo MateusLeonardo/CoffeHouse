@@ -1,6 +1,9 @@
 .header {
   background: #241513;
   padding: 25px 20px;
+  position: fixed;
+  width: 100vw;
+  z-index: 1000;
 }
 .container {
   display: flex;

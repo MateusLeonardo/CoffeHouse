@@ -1,7 +1,14 @@
 import { FaStar } from "react-icons/fa";
 import styles from "./styles.module.scss";
+import { useCart } from "../CartContext/CartContext";
 
 export function MenuItem({ response }) {
+  const { addToCart } = useCart(); // Usa o hook do contexto do carrinho
+
+  const handleSelectItem = () => {
+    addToCart(response); // Adiciona o item selecionado ao carrinho
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.itemImg}>
@@ -16,7 +23,7 @@ export function MenuItem({ response }) {
         </h3>
         <p>{response.itemDescricao}</p>
       </div>
-      <button>Pedir Agora</button>
+      <button onClick={handleSelectItem}>Pedir Agora</button>
     </div>
   );
 }
