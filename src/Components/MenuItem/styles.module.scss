@@ -49,6 +49,10 @@
 }
 
 .container button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
   padding: 1rem;
   width: 100%;
   border: none;

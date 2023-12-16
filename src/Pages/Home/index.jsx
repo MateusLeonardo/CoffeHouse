@@ -12,29 +12,30 @@ import cafeEvento2 from "../../assets/cafeEvento2.jpg";
 import { useEffect, useState } from "react";
 import { Slider } from "../../Components/Slider";
 import { data } from "../../../SliderImgs";
-import { Footer } from "../../Components/Footer";
 import axios from "axios";
 
 export function Home() {
   const [selectedCategory, setSelectedCategory] = useState("sanduiche");
-  const [itemsMenu, setItemsMenu] = useState([])
+  const [itemsMenu, setItemsMenu] = useState([]);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
-  
+
   useEffect(() => {
     async function getMenuItems() {
       try {
-        const response = await axios.get(`http://localhost:3000/${selectedCategory}`)
-        setItemsMenu(response.data)
-        console.log(response.data)
+        const response = await axios.get(
+          `http://localhost:3000/${selectedCategory}`
+        );
+        setItemsMenu(response.data);
+        console.log(response.data);
       } catch (error) {
         console.log(error);
       }
     }
-    getMenuItems()
-  },[selectedCategory])
+    getMenuItems();
+  }, [selectedCategory]);
 
   return (
     <>
@@ -166,9 +167,6 @@ export function Home() {
       <div className={styles.slider}>
         <Slider data={data} />
       </div>
-
-      <Footer />
-
     </>
   );
 }

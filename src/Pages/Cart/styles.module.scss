@@ -1,0 +1,74 @@
+.container {
+  height: calc(100vh - 98px);
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin:  0 auto;
+}
+.tabelaProdutos {
+  flex: 2;
+  margin: 20px;
+  font-family: Arial, sans-serif;
+
+  .titleCart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px #00000029;
+
+    th, td {
+      text-align: left;
+    }
+    th {
+      padding: 1rem;
+    }
+    td {
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid #f0e9e7;
+    }
+
+    th {
+      background-color: #a1691d;
+    }
+
+    .quantityButtons {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+
+
+      button {
+        padding: 4px 8px;
+        margin: 0 4px;
+        font-size: 14px;
+        cursor: pointer;
+        background-color: #644A3A;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+
+        &:hover {
+          filter: brightness(80%);
+        }
+      }
+    }
+  }
+}
+.cardTotal {
+  flex: 1;
+}
