@@ -15,7 +15,7 @@ export function Footer() {
         </div>
         <div>
           <h3>Local</h3>
-          <Maps />
+          {/* <Maps /> */}
         </div>
         <div>
           <h3>Redes sociais</h3>

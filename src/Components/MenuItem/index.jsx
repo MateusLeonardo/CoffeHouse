@@ -8,6 +8,7 @@ import { FiShoppingCart } from "react-icons/fi";
 export function MenuItem({ response }) {
   const { addToCart } = useCart();
 
+  
   const handleSelectItem = () => {
     addToCart(response);
 

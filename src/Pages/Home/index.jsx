@@ -15,8 +15,9 @@ import { data } from "../../../SliderImgs";
 import axios from "axios";
 
 export function Home() {
-  const [selectedCategory, setSelectedCategory] = useState("sanduiche");
+  const [selectedCategory, setSelectedCategory] = useState("cafe");
   const [itemsMenu, setItemsMenu] = useState([]);
+  const [loading, setLoading] = useState(false)
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -25,13 +26,17 @@ export function Home() {
   useEffect(() => {
     async function getMenuItems() {
       try {
+        setLoading(true);
         const response = await axios.get(
-          `http://localhost:3000/${selectedCategory}`
+          "http://localhost:3000/itensLanche"
         );
-        setItemsMenu(response.data);
-        console.log(response.data);
+        const allItems = response.data
+        const filteredItems = allItems.filter(item => item.categoria === selectedCategory);
+        setItemsMenu(filteredItems);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     }
     getMenuItems();
@@ -108,17 +113,17 @@ export function Home() {
 
       <div className={styles.containerMenu}>
         <div className={styles.button}>
+        <button
+            className={selectedCategory === "cafe" ? styles.selected : ""}
+            onClick={() => handleCategoryClick("cafe")}
+          >
+            Cafés
+          </button>
           <button
             className={selectedCategory === "sanduiche" ? styles.selected : ""}
             onClick={() => handleCategoryClick("sanduiche")}
           >
             Sanduiches
-          </button>
-          <button
-            className={selectedCategory === "cafe" ? styles.selected : ""}
-            onClick={() => handleCategoryClick("cafe")}
-          >
-            Cafés
           </button>
           <button
             className={selectedCategory === "pastel" ? styles.selected : ""}
@@ -127,7 +132,14 @@ export function Home() {
             Pastéis
           </button>
         </div>
-        <CardMenu menuItems={itemsMenu && itemsMenu} />
+        {loading ? (
+          <div className={styles.loadingContainer}>
+          <div className={styles.loadingSpinner}></div>
+          <p className={styles.loadingText}>Carregando...</p>
+        </div>
+        ) : (
+          <CardMenu menuItems={itemsMenu && itemsMenu} />
+        )}
       </div>
 
       <SectionTitle title="Eventos futuros" />
