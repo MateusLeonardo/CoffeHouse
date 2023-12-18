@@ -17,7 +17,7 @@ import axios from "axios";
 export function Home() {
   const [selectedCategory, setSelectedCategory] = useState("cafe");
   const [itemsMenu, setItemsMenu] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -27,11 +27,11 @@ export function Home() {
     async function getMenuItems() {
       try {
         setLoading(true);
-        const response = await axios.get(
-          "http://localhost:3000/itensLanche"
+        const response = await axios.get("http://localhost:3000/itensLanche");
+        const allItems = response.data;
+        const filteredItems = allItems.filter(
+          (item) => item.categoria === selectedCategory
         );
-        const allItems = response.data
-        const filteredItems = allItems.filter(item => item.categoria === selectedCategory);
         setItemsMenu(filteredItems);
       } catch (error) {
         console.log(error);
@@ -113,7 +113,7 @@ export function Home() {
 
       <div className={styles.containerMenu}>
         <div className={styles.button}>
-        <button
+          <button
             className={selectedCategory === "cafe" ? styles.selected : ""}
             onClick={() => handleCategoryClick("cafe")}
           >
@@ -134,9 +134,9 @@ export function Home() {
         </div>
         {loading ? (
           <div className={styles.loadingContainer}>
-          <div className={styles.loadingSpinner}></div>
-          <p className={styles.loadingText}>Carregando...</p>
-        </div>
+            <div className={styles.loadingSpinner}></div>
+            <p className={styles.loadingText}>Carregando...</p>
+          </div>
         ) : (
           <CardMenu menuItems={itemsMenu && itemsMenu} />
         )}

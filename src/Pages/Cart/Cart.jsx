@@ -4,7 +4,8 @@ import styles from "./styles.module.scss";
 import { useCart } from "../../Components/CartContext/CartContext";
 
 export function Cart() {
-  const { cartItems, cartSize, updateCartItemQuantity, removeFromCard } = useCart();
+  const { cartItems, cartSize, updateCartItemQuantity, removeFromCard } =
+    useCart();
 
   const adicionarQuantidade = (id) => {
     const existingItem = cartItems.find((item) => item.id === id);
@@ -19,11 +20,11 @@ export function Cart() {
   };
 
   const removerQuantidade = (id) => {
-    const item = cartItems.find(item => item.id === id);
-    if(item && item.quantidade === 1) {
-      removeFromCard(id)
+    const item = cartItems.find((item) => item.id === id);
+    if (item && item.quantidade === 1) {
+      removeFromCard(id);
     } else {
-      updateCartItemQuantity(id, -1)
+      updateCartItemQuantity(id, -1);
     }
   };
 
@@ -33,9 +34,9 @@ export function Cart() {
         <div className={styles.titleCart}>
           <h1>Meu Carrinho</h1>
           <p>
-            Você tem {" "}
+            Você tem{" "}
             <span>
-              {cartSize} {cartItems.length > 1 ? 'itens' : 'item'} no carrinho
+              {cartSize} {cartItems.length > 1 ? "itens" : "item"} no carrinho
             </span>
           </p>
         </div>
@@ -52,7 +53,10 @@ export function Cart() {
           <tbody>
             {cartItems.map((item) => (
               <tr key={item.id}>
-                <td>{item.itemNome}</td>
+                <td className={styles.tdImg}>
+                  <img src={item.itemImagem} alt="" height={40} />
+                  {item.itemNome}
+                </td>
                 <td>
                   {new Intl.NumberFormat("pt-BR", {
                     style: "currency",
@@ -73,7 +77,10 @@ export function Cart() {
                   }).format(item.itemPreco * item.quantidade)}
                 </td>
                 <td>
-                  <RiDeleteBin7Line className={styles.deleteBin}  onClick={() => removeFromCard(item.id)}/>
+                  <RiDeleteBin7Line
+                    className={styles.deleteBin}
+                    onClick={() => removeFromCard(item.id)}
+                  />
                 </td>
               </tr>
             ))}

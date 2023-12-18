@@ -38,17 +38,24 @@
     }
     td {
       padding: 1.5rem 1rem;
-      border-bottom: 1px solid #f0e9e7;
     }
+    .tdImg {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
 
+      img {
+        border-radius: 6px;
+      }
+    }
     th {
       background-color: #a1691d;
     }
 
     .quantityButtons {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
+      // display: flex;
+      // align-items: center;
+      // gap: .5rem;
 
 
       button {
