@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RiDeleteBin7Line } from "react-icons/ri";
 import styles from "./styles.module.scss";
 import { useCart } from "../../Components/CartContext/CartContext";
+import axios from "axios";
 
 export function Cart() {
   const { cartItems, cartSize, updateCartItemQuantity, removeFromCard } =
     useCart();
+  const [cupomDescontoCard, setCupomDescontoCard] = useState(false);
+  const [inputCupomDesconto, setInputCupomDesconto] = useState("");
+  const [total, setTotal] = useState(0);
+  const [desconto, setDesconto] = useState({});
+  const [errorDesconto, setErrorDesconto] = useState(false);
+  const [successDesconto, setSuccessDesconto] = useState(false);
 
   const adicionarQuantidade = (id) => {
     const existingItem = cartItems.find((item) => item.id === id);
@@ -25,6 +32,50 @@ export function Cart() {
       removeFromCard(id);
     } else {
       updateCartItemQuantity(id, -1);
+    }
+  };
+
+  useEffect(() => {
+    const calcularTotal = () => {
+      let subTotal = cartItems.reduce((total, item) => {
+        return total + item.itemPreco * item.quantidade;
+      }, 0);
+
+      let totalComDesconto = subTotal;
+
+      if (desconto && desconto.desconto) {
+        const valorDesconto = (subTotal * desconto.desconto) / 100;
+        totalComDesconto = subTotal - valorDesconto;
+      }
+
+      return totalComDesconto;
+    };
+
+    // Atualiza o estado 'total' com o valor calculado
+    setTotal(calcularTotal());
+  }, [cartItems, desconto]);
+
+  const handleCalculateCupomDesconto = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/cupomDesconto");
+      const cupomEncontrado = response.data.find(
+        (item) => item.cupomNome === inputCupomDesconto
+      );
+
+      if (cupomEncontrado) {
+        setDesconto(cupomEncontrado);
+        setErrorDesconto(false);
+        setSuccessDesconto(true);
+      } else {
+        setDesconto({});
+        setErrorDesconto(true);
+
+        setTimeout(() => {
+          setErrorDesconto(false);
+        }, 2000);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -87,7 +138,47 @@ export function Cart() {
           </tbody>
         </table>
       </div>
-      <div className={styles.cardTotal}>Continuar pagamento</div>
+      <div className={styles.cardTotal}>
+        <h1>Continuar pagamento</h1>
+        <div className={styles.cupomDesconto}>
+          {cupomDescontoCard ? (
+            <>
+              <span>Cupom</span>
+              <input
+                type="text"
+                value={inputCupomDesconto}
+                onChange={({ target }) => setInputCupomDesconto(target.value)}
+              />
+              {errorDesconto ? (
+                <span>Cupom inválido</span>
+              ) : (
+                <button onClick={handleCalculateCupomDesconto}>
+                  Adicionar
+                </button>
+              )}
+            </>
+          ) : (
+            <>
+              <span>Cupom</span>
+              <p onClick={() => setCupomDescontoCard(!cupomDescontoCard)}>
+                Adicionar cupom de desconto
+              </p>
+            </>
+          )}
+        </div>
+        <div className={styles.total}>
+          <span>Total</span>
+          <span className={styles.numberTotal}>
+            {new Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            }).format(total)}
+          </span>
+        </div>
+        <div className={styles.pagamentoButton}>
+          <button>Continuar pagamento</button>
+        </div>
+      </div>
     </section>
   );
 }
