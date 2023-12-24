@@ -1,22 +1,16 @@
 {
   "user": [
     {
-      "id": 1,
-      "name": "mateus leonardo",
-      "email": "mateus_leonardo1997@hotmail.com",
-      "password": "123"
-    },
-    {
       "name": "mateus",
       "email": "mateus@hotmail.com",
       "password": "123",
-      "id": 2
+      "id": 1
     },
     {
       "name": "mateus",
       "email": "Mateus_leonardo1997@hotmail.com",
       "password": "123",
-      "id": 3
+      "id": 2
     }
   ],
   "cupomDesconto": [

@@ -80,105 +80,123 @@ export function Cart() {
   };
 
   return (
-    <section className={styles.container}>
-      <div className={styles.tabelaProdutos}>
-        <div className={styles.titleCart}>
-          <h1>Meu Carrinho</h1>
-          <p>
-            Você tem{" "}
-            <span>
-              {cartSize} {cartItems.length > 1 ? "itens" : "item"} no carrinho
-            </span>
-          </p>
-        </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Preço</th>
-              <th>Quantidade</th>
-              <th>Total</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {cartItems.map((item) => (
-              <tr key={item.id}>
-                <td className={styles.tdImg}>
-                  <img src={item.itemImagem} alt="" height={40} />
-                  {item.itemNome}
-                </td>
-                <td>
-                  {new Intl.NumberFormat("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  }).format(item.itemPreco)}
-                </td>
-                <td className={styles.quantityButtons}>
-                  <button onClick={() => removerQuantidade(item.id)}>-</button>
-                  {item.quantidade}
-                  <button onClick={() => adicionarQuantidade(item.id)}>
-                    +
-                  </button>
-                </td>
-                <td>
-                  {new Intl.NumberFormat("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  }).format(item.itemPreco * item.quantidade)}
-                </td>
-                <td>
-                  <RiDeleteBin7Line
-                    className={styles.deleteBin}
-                    onClick={() => removeFromCard(item.id)}
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className={styles.cardTotal}>
-        <h1>Continuar pagamento</h1>
-        <div className={styles.cupomDesconto}>
-          {cupomDescontoCard ? (
-            <>
-              <span>Cupom</span>
-              <input
-                type="text"
-                value={inputCupomDesconto}
-                onChange={({ target }) => setInputCupomDesconto(target.value)}
-              />
-              {errorDesconto ? (
-                <span>Cupom inválido</span>
-              ) : (
-                <button onClick={handleCalculateCupomDesconto}>
-                  Adicionar
-                </button>
-              )}
-            </>
-          ) : (
-            <>
-              <span>Cupom</span>
-              <p onClick={() => setCupomDescontoCard(!cupomDescontoCard)}>
-                Adicionar cupom de desconto
+    <main>
+      {cartItems.length > 0 ? (
+        <section className={styles.container}>
+          <div className={styles.tabelaProdutos}>
+            <div className={styles.titleCart}>
+              <h1>Meu Carrinho</h1>
+              <p>
+                Você tem{" "}
+                <span>
+                  {cartSize} {cartItems.length > 1 ? "itens" : "item"} no
+                  carrinho
+                </span>
               </p>
-            </>
-          )}
-        </div>
-        <div className={styles.total}>
-          <span>Total</span>
-          <span className={styles.numberTotal}>
-            {new Intl.NumberFormat("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            }).format(total)}
-          </span>
-        </div>
-        <div className={styles.pagamentoButton}>
-          <button>Continuar pagamento</button>
-        </div>
-      </div>
-    </section>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Preço</th>
+                  <th>Quantidade</th>
+                  <th>Total</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {cartItems.map((item) => (
+                  <tr key={item.id}>
+                    <td className={styles.tdImg}>
+                      <img src={item.itemImagem} alt="" height={40} />
+                      {item.itemNome}
+                    </td>
+                    <td>
+                      {new Intl.NumberFormat("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                      }).format(item.itemPreco)}
+                    </td>
+                    <td className={styles.quantityButtons}>
+                      <button onClick={() => removerQuantidade(item.id)}>
+                        -
+                      </button>
+                      {item.quantidade}
+                      <button onClick={() => adicionarQuantidade(item.id)}>
+                        +
+                      </button>
+                    </td>
+                    <td>
+                      {new Intl.NumberFormat("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                      }).format(item.itemPreco * item.quantidade)}
+                    </td>
+                    <td>
+                      <RiDeleteBin7Line
+                        className={styles.deleteBin}
+                        onClick={() => removeFromCard(item.id)}
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className={styles.cardTotal}>
+            <h1>Continuar pagamento</h1>
+            <div className={styles.cupomDesconto}>
+              {cupomDescontoCard ? (
+                <>
+                  <span>Cupom</span>
+                  <input
+                    type="text"
+                    value={inputCupomDesconto}
+                    onChange={({ target }) =>
+                      setInputCupomDesconto(target.value)
+                    }
+                  />
+                  {errorDesconto ? (
+                    <span>Cupom inválido</span>
+                  ) : (
+                    <button onClick={handleCalculateCupomDesconto}>
+                      Adicionar
+                    </button>
+                  )}
+                </>
+              ) : (
+                <>
+                  <span>Cupom</span>
+                  <p onClick={() => setCupomDescontoCard(!cupomDescontoCard)}>
+                    Adicionar cupom de desconto
+                  </p>
+                </>
+              )}
+            </div>
+            <div className={styles.total}>
+              <span>Total</span>
+              <span className={styles.numberTotal}>
+                {new Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(total)}
+              </span>
+            </div>
+            <div className={styles.pagamentoButton}>
+              <button>Continuar pagamento</button>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <section className={styles.container}>
+          <div className={styles.tabelaProdutos}>
+            <div className={styles.titleCart}>
+              <h1>Meu Carrinho</h1>
+              <p>Você não tem nada no carrinho</p>
+            </div>
+          </div>
+        </section>
+      )}
+    </main>
   );
 }

@@ -7,6 +7,7 @@ export function LoginCreate() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailExists, setEmailExists] = useState(false);
+  const [userCreated, setUserCreated] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -40,7 +41,12 @@ export function LoginCreate() {
         email,
         password,
       });
-      console.log("User created:", response.data); // Exibe os dados do novo usuário criado
+      console.log("User created:", response.data);
+      setUserCreated(true) 
+      setTimeout(() => {
+        navigate("/login")
+      },2000)
+      // Exibe os dados do novo usuário criado
     } catch (error) {
       console.error("Erro ao criar usuário:", error);
     }
@@ -56,6 +62,7 @@ export function LoginCreate() {
           id="name"
           value={name}
           onChange={({ target }) => setName(target.value)}
+          required
         />
         <label htmlFor="email">Email</label>
         <input
@@ -64,6 +71,7 @@ export function LoginCreate() {
           placeholder="example@email.com"
           value={email}
           onChange={({ target }) => setEmail(target.value)}
+          required
         />
         {emailExists && <p>Email já está em uso.</p>}
         <label htmlFor="password">Senha</label>
@@ -72,8 +80,12 @@ export function LoginCreate() {
           id="password"
           value={password}
           onChange={({ target }) => setPassword(target.value)}
+          required
         />
-        <button type="submit">Criar conta</button>
+        {userCreated ? (<>
+          <button type="submit" disabled>Usuário criado</button>
+          <p>Usuário criado com sucesso</p>
+        </>) : (<button type="submit" >Criar conta</button>)}
       </form>
     </div>
   );
