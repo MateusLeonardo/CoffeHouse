@@ -3,6 +3,7 @@ import { RiDeleteBin7Line } from "react-icons/ri";
 import styles from "./styles.module.scss";
 import { useCart } from "../../Components/CartContext/CartContext";
 import axios from "axios";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
 export function Cart() {
   const { cartItems, cartSize, updateCartItemQuantity, removeFromCard } =
@@ -118,13 +119,15 @@ export function Cart() {
                       }).format(item.itemPreco)}
                     </td>
                     <td className={styles.quantityButtons}>
-                      <button onClick={() => removerQuantidade(item.id)}>
-                        -
-                      </button>
-                      {item.quantidade}
-                      <button onClick={() => adicionarQuantidade(item.id)}>
-                        +
-                      </button>
+                      <div>
+                        <button onClick={() => removerQuantidade(item.id)}>
+                          <FaMinus />
+                        </button>
+                        <p>{item.quantidade}</p>
+                        <button onClick={() => adicionarQuantidade(item.id)}>
+                          <FaPlus />
+                        </button>
+                      </div>
                     </td>
                     <td>
                       {new Intl.NumberFormat("pt-BR", {
@@ -146,7 +149,11 @@ export function Cart() {
           <div className={styles.cardTotal}>
             <h1>Continuar pagamento</h1>
             <div className={styles.cupomDesconto}>
-              {cupomDescontoCard ? (
+              {successDesconto ? (
+                <p className={styles.descontoSucesso}>
+                  Desconto adicionado com sucesso
+                </p>
+              ) : cupomDescontoCard ? (
                 <>
                   <span>Cupom</span>
                   <input
