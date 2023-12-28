@@ -109,7 +109,7 @@ export function Home() {
         </div>
       </section>
 
-      <SectionTitle title="Menu" />
+      <SectionTitle title="Menu" id="menu"/>
 
       <div className={styles.containerMenu}>
         <div className={styles.button}>
@@ -142,7 +142,7 @@ export function Home() {
         )}
       </div>
 
-      <SectionTitle title="Eventos futuros" />
+      <SectionTitle title="Eventos futuros" id="eventos"/>
 
       <section className={styles.eventos}>
         <div className={styles.content}>
@@ -174,7 +174,7 @@ export function Home() {
         </div>
       </section>
 
-      <SectionTitle title="Galeria" />
+      <SectionTitle title="Galeria" id="galeria"/>
 
       <div className={styles.slider}>
         <Slider data={data} />

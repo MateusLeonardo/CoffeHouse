@@ -144,6 +144,7 @@
   background: #eee;
   padding: 20px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   border-radius: 8px;
 }
@@ -182,4 +183,9 @@
   &:hover {
     color: initial !important;
   }
+}
+
+.subTotal {
+  margin-right: 10px;
+  text-decoration: line-through;
 }

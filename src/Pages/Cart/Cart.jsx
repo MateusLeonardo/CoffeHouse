@@ -11,6 +11,7 @@ export function Cart() {
   const [cupomDescontoCard, setCupomDescontoCard] = useState(false);
   const [inputCupomDesconto, setInputCupomDesconto] = useState("");
   const [total, setTotal] = useState(0);
+  const [subTotal, setSubTotal] = useState(0);
   const [desconto, setDesconto] = useState({});
   const [errorDesconto, setErrorDesconto] = useState(false);
   const [successDesconto, setSuccessDesconto] = useState(false);
@@ -43,6 +44,7 @@ export function Cart() {
       }, 0);
 
       let totalComDesconto = subTotal;
+      setSubTotal(subTotal);
 
       if (desconto && desconto.desconto) {
         const valorDesconto = (subTotal * desconto.desconto) / 100;
@@ -54,7 +56,7 @@ export function Cart() {
 
     // Atualiza o estado 'total' com o valor calculado
     setTotal(calcularTotal());
-  }, [cartItems, desconto]);
+  }, [cartItems, desconto, subTotal]);
 
   const handleCalculateCupomDesconto = async () => {
     try {
@@ -151,7 +153,8 @@ export function Cart() {
             <div className={styles.cupomDesconto}>
               {successDesconto ? (
                 <p className={styles.descontoSucesso}>
-                  Desconto adicionado com sucesso
+                  Desconto de {desconto.desconto && desconto.desconto}%
+                  adicionado com sucesso
                 </p>
               ) : cupomDescontoCard ? (
                 <>
@@ -182,12 +185,22 @@ export function Cart() {
             </div>
             <div className={styles.total}>
               <span>Total</span>
-              <span className={styles.numberTotal}>
-                {new Intl.NumberFormat("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                }).format(total)}
-              </span>
+              <div>
+                {successDesconto && (
+                  <span className={styles.subTotal}>
+                    {new Intl.NumberFormat("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    }).format(subTotal)}
+                  </span>
+                )}
+                <span className={styles.numberTotal}>
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(total)}
+                </span>
+              </div>
             </div>
             <div className={styles.pagamentoButton}>
               <button>Continuar pagamento</button>

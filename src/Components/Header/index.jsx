@@ -18,16 +18,13 @@ export function Header() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="menu">Menu</Link>
+            <a href="#menu">Menu</a>
           </li>
           <li>
-            <Link to="eventos">Eventos</Link>
+            <a href="#eventos">Eventos</a>
           </li>
           <li>
-            <Link to="galeria">Galeria</Link>
-          </li>
-          <li>
-            <Link to="reviews">Reviews</Link>
+            <a href="#galeria">Galeria</a>
           </li>
         </ul>
 
