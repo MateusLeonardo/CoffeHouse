@@ -34,3 +34,20 @@
   }
 
 }
+
+@media(max-width: 425px) {
+  .container .title {
+    font-size: 3.6rem;
+
+    &::before,
+    &::after {
+      width: 70px;
+    }
+    &::after {
+      right: -80px;
+    }
+    &::before {
+      left: -80px;
+    }
+  }
+}

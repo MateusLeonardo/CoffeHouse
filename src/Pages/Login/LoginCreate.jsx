@@ -63,6 +63,7 @@ export function LoginCreate() {
           value={name}
           onChange={({ target }) => setName(target.value)}
           required
+          placeholder="Nome"
         />
         <label htmlFor="email">Email</label>
         <input

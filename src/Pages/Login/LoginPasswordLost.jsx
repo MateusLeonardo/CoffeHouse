@@ -6,7 +6,7 @@ export function LoginPasswordLost() {
     <h1 className={styles.login}>Digite seu Email</h1>
     <form className={styles.form}>
       <label htmlFor="email">Email</label>
-      <input type="email" id="email"/>
+      <input type="email" id="email" placeholder='example@example.com'/>
       <button type="submit">Enviar</button>
     </form>
   </div>

@@ -12,35 +12,26 @@ import cafeEvento2 from "../../assets/cafeEvento2.jpg";
 import { useEffect, useState } from "react";
 import { Slider } from "../../Components/Slider";
 import { data } from "../../../SliderImgs";
-import axios from "axios";
+import arrayItens from "../../../arrayItens";
 
 export function Home() {
   const [selectedCategory, setSelectedCategory] = useState("cafe");
   const [itemsMenu, setItemsMenu] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
+    filterItems(category);
+  };
+
+  const filterItems = (category) => {
+    const filteredItems = arrayItens.filter((item) => item.categoria === category);
+    setItemsMenu(filteredItems);
   };
 
   useEffect(() => {
-    async function getMenuItems() {
-      try {
-        setLoading(true);
-        const response = await axios.get("http://localhost:3000/itensLanche");
-        const allItems = response.data;
-        const filteredItems = allItems.filter(
-          (item) => item.categoria === selectedCategory
-        );
-        setItemsMenu(filteredItems);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    getMenuItems();
-  }, [selectedCategory]);
+    filterItems("cafe"); 
+  }, []);
+
 
   return (
     <>
@@ -132,14 +123,9 @@ export function Home() {
             Pastéis
           </button>
         </div>
-        {loading ? (
-          <div className={styles.loadingContainer}>
-            <div className={styles.loadingSpinner}></div>
-            <p className={styles.loadingText}>Carregando...</p>
-          </div>
-        ) : (
-          <CardMenu menuItems={itemsMenu && itemsMenu} />
-        )}
+        
+        <CardMenu menuItems={itemsMenu} />
+
       </div>
 
       <SectionTitle title="Eventos futuros" id="eventos"/>

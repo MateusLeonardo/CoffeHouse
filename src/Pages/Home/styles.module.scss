@@ -273,3 +273,21 @@
     padding: 20px;
   }
 }
+
+@media(max-width: 425px) {
+  .main .container {
+    margin-left: 0;
+  }
+  .eventos {
+    flex-direction: column;
+  }
+  .slider {
+    &::after,
+    &::before {
+      display: none;
+    }
+  }
+  .containerMenu .button {
+    gap: 1.2rem;
+  }
+}
