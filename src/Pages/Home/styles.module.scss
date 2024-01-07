@@ -40,6 +40,19 @@
   }
 }
 
+@media(max-width: 425px) {
+  .main .container .content {
+    background-color: rgba(199, 195, 192, 0.7);
+    padding: 2rem;
+    margin: 20px;
+
+    h1 {
+      font-size: 3rem;
+    }
+
+  }
+}
+
 .aboutsCoffee {
   background: #fffcf6;
 
@@ -84,6 +97,19 @@
   }
 }
 
+@media(max-width: 425px) {
+  .aboutsCoffee {
+
+    .container {
+      flex-direction: column;
+
+      div {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
 .sobre {
   padding: 2rem 4rem;
   display: flex;
@@ -111,6 +137,7 @@
       font-size: 1.2rem;
       line-height: 1.3;
     }
+
     span {
       display: block;
     }
@@ -119,8 +146,15 @@
       font-weight: bold;
     }
   }
+
   .foto img {
     width: 100%;
+  }
+}
+
+@media(max-width: 425px) {
+  .sobre {
+    padding: 2rem 20px;
   }
 }
 
@@ -130,6 +164,7 @@
     margin: 0 auto;
     padding-bottom: 2rem;
     display: flex;
+    flex-wrap: wrap;
     gap: 2.5rem;
 
     button {
@@ -140,13 +175,14 @@
       border-radius: 4px;
       box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.6);
       cursor: pointer;
-      transition: all 0.1s ease-in ;
-      
+      transition: all 0.1s ease-in;
+
       &:hover {
         background: #000;
         color: #ffffff;
       }
     }
+
     button.selected {
       background: #000;
       color: #ffffff;
@@ -219,6 +255,7 @@
     background: url('../../assets/GraoCafe.png') no-repeat center;
     top: 6rem;
   }
+
   &::after {
     position: absolute;
     content: '';
@@ -241,6 +278,7 @@
   animation: spin 1s linear infinite;
   margin: 20px auto;
 }
+
 .loadingContainer {
   text-align: center;
 }
@@ -252,8 +290,13 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 768px) {
@@ -278,15 +321,19 @@
   .main .container {
     margin-left: 0;
   }
+
   .eventos {
     flex-direction: column;
   }
+
   .slider {
+
     &::after,
     &::before {
       display: none;
     }
   }
+
   .containerMenu .button {
     gap: 1.2rem;
   }

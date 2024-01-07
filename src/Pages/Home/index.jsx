@@ -49,10 +49,8 @@ export function Home() {
             <LinkButton
               href="#"
               children="Visite-nos hoje"
-              padding="1.3rem 4.3rem"
               borderRadius="1rem"
               color="#f9ebd4"
-              fontSize="1.2rem"
             />
           </div>
         </div>
