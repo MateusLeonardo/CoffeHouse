@@ -48,3 +48,13 @@
     }
   }
 }
+
+
+@media(max-width: 425px) {
+  .container {
+    width: auto;
+  }
+  .form input {
+    width: 100%;
+  }
+}

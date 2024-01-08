@@ -69,6 +69,7 @@
   }
 
   button {
+    display: block;
     padding: 0.875rem 3rem;
     border-radius: 8px;
     border:none;
@@ -81,5 +82,15 @@
     &:hover {
       filter: brightness(90%);
     }
+  }
+}
+
+
+@media(max-width: 425px) {
+  .container {
+    width: auto;
+  }
+  .form input {
+    width: 100%;
   }
 }

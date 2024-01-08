@@ -33,7 +33,7 @@ export function LoginForm() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} mt80`}>
       <h1 className={styles.login}>Login</h1>
 
       <form onSubmit={handleLogin} className={styles.form}>
