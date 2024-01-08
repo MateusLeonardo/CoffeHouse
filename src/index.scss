@@ -9,3 +9,9 @@
 body {
   background: #fffcf6;
 }
+
+@media(max-width: 425px) {
+  .mt80 {
+    margin-top: 80px;
+  }
+}

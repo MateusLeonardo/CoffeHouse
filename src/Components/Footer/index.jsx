@@ -14,10 +14,6 @@ export function Footer() {
           <span>Domingo: Fechado</span>
         </div>
         <div>
-          <h3>Local</h3>
-          {/* <Maps /> */}
-        </div>
-        <div>
           <h3>Redes sociais</h3>
           <span>Nos siga no Instagram e Facebook para mais atualizações</span>
           <a href="">

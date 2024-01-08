@@ -35,7 +35,7 @@ export function Home() {
 
   return (
     <>
-      <main className={styles.main}>
+      <main className={`${styles.main} mt80`}>
         <div className={styles.container}>
           <div className={styles.content}>
             <h1>Café fresco</h1>

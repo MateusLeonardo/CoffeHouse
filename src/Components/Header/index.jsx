@@ -18,7 +18,7 @@ export function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <p>
-          Coffee <br /> House
+          Coffee House
         </p>
 
         {menuOpen ? (

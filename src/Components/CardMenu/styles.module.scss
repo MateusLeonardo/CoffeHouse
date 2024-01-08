@@ -8,13 +8,7 @@
 
 @media(max-width: 425px) {
   .container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr ;
     gap: 1rem;
-  }
-}
-
-@media(max-width: 375px) {
-  .container {
-    grid-template-columns: 1fr;
   }
 }
