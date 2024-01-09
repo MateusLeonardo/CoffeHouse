@@ -85,7 +85,7 @@ export function Cart() {
   return (
     <main>
       {cartItems.length > 0 ? (
-        <section className={styles.container}>
+        <section className={`${styles.container} mt80`}>
           <div className={styles.tabelaProdutos}>
             <div className={styles.titleCart}>
               <h1>Meu Carrinho</h1>

@@ -4,6 +4,7 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 20px;
 }
 .tabelaProdutos {
   flex: 2;
@@ -191,4 +192,45 @@
 }
 .numberTotal {
   font-weight: bold;
+}
+
+@media(max-width: 1000px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+  .tabelaProdutos {
+    flex: initial;
+  }
+}
+
+@media(max-width: 600px) {
+  .tabelaProdutos {
+    .titleCart {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+    table {
+      th,
+      td {
+        text-align: left;
+      }
+      th {
+        padding: 0.5rem;
+      }
+      td {
+        padding: 0.5rem;
+      }
+      .tdImg {
+        img {
+          display: none;
+        }
+      }
+    }
+  }
 }
