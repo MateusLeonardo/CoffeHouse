@@ -6,7 +6,7 @@ import { LoginPasswordLost } from "./LoginPasswordLost";
 
 export function Login() {
   return (
-    <section className={styles.login}>
+    <section className={`${styles.login} mt80`}>
       <div className={styles.form}>
         <Routes>
           <Route path="/"  element={<LoginForm />} />
