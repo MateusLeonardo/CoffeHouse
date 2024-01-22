@@ -14,7 +14,7 @@ import { Slider } from "../../Components/Slider";
 import { data } from "../../../SliderImgs";
 import arrayItens from "../../../arrayItens";
 
-export function Home() {
+export function Home({menuRef, eventosRef, galeriaRef}) {
   const [selectedCategory, setSelectedCategory] = useState("cafe");
   const [itemsMenu, setItemsMenu] = useState([]);
 
@@ -98,7 +98,7 @@ export function Home() {
         </div>
       </section>
 
-      <SectionTitle title="Menu" id="menu"/>
+      <SectionTitle title="Menu" id="menu" ref={menuRef}/>
 
       <div className={styles.containerMenu}>
         <div className={styles.button}>
@@ -126,7 +126,7 @@ export function Home() {
 
       </div>
 
-      <SectionTitle title="Eventos futuros" id="eventos"/>
+      <SectionTitle title="Eventos futuros" id="eventos" ref={eventosRef}/>
 
       <section className={styles.eventos}>
         <div className={styles.content}>
@@ -158,7 +158,7 @@ export function Home() {
         </div>
       </section>
 
-      <SectionTitle title="Galeria" id="galeria"/>
+      <SectionTitle title="Galeria" id="galeria" ref={galeriaRef}/>
 
       <div className={styles.slider}>
         <Slider data={data} />

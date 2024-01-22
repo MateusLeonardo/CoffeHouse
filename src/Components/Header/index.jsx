@@ -6,7 +6,7 @@ import { useCart } from "../CartContext/CartContext";
 import { useState } from "react";
 import { IoMenu, IoClose } from "react-icons/io5";
 
-export function Header() {
+export function Header({ menuRef, eventosRef, galeriaRef, scrollToSection }) {
   const { cartSize } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -14,12 +14,15 @@ export function Header() {
     setMenuOpen(!menuOpen);
   };
 
+  const handleSectionClick = (ref) => (e) => {
+    e.preventDefault();
+    scrollToSection(ref);
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <p>
-          Coffee House
-        </p>
+        <p>Coffee House</p>
 
         {menuOpen ? (
           <IoClose size={35} color="#F5F6F6" onClick={handleToggleMenu} />
@@ -33,13 +36,15 @@ export function Header() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="#menu">Menu</a>
+              <a href="#menu" onClick={handleSectionClick(menuRef)}>
+                Menu
+              </a>
             </li>
             <li>
-              <a href="#eventos">Eventos</a>
+              <a href="#eventos" onClick={handleSectionClick(eventosRef)}>Eventos</a>
             </li>
             <li>
-              <a href="#galeria">Galeria</a>
+              <a href="#galeria" onClick={handleSectionClick(galeriaRef)}>Galeria</a>
             </li>
           </ul>
 

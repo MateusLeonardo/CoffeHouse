@@ -8,15 +8,38 @@ import { CartProvider } from "./Components/CartContext/CartContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Cart } from "./Pages/Cart/Cart";
-import {Footer} from "./Components/Footer"
+import { Footer } from "./Components/Footer";
+import { useRef } from "react";
 
 const App = () => {
+  const menuRef = useRef(null);
+  const eventosRef = useRef(null);
+  const galeriaRef = useRef(null);
+
+  const scrollToSection = (ref) => {
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <BrowserRouter>
       <CartProvider>
-        <Header />
+        <Header
+          scrollToSection={scrollToSection}
+          menuRef={menuRef}
+          eventosRef={eventosRef}
+          galeriaRef={galeriaRef}
+        />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                menuRef={menuRef}
+                eventosRef={eventosRef}
+                galeriaRef={galeriaRef}
+                scrollToSection={scrollToSection}
+              />
+            }
+          />
           <Route path="/login/*" element={<Login />} />
           <Route
             path="/dashboard"
@@ -26,7 +49,7 @@ const App = () => {
               </ProtectedRoute>
             }
           />
-          <Route path="/carrinho" element={<Cart/>}/>
+          <Route path="/carrinho" element={<Cart />} />
         </Routes>
         <Footer />
       </CartProvider>
