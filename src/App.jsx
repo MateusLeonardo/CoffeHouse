@@ -17,7 +17,9 @@ const App = () => {
   const galeriaRef = useRef(null);
 
   const scrollToSection = (ref) => {
-    ref.current.scrollIntoView({ behavior: "smooth" });
+    if(ref && ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
   return (
     <BrowserRouter>
