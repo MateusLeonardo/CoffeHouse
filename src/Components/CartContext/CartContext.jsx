@@ -9,13 +9,8 @@ export const useCart = () => {
 
 
 export const CartProvider = ({ children }) => {
-  const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
 
-  const [cartItems, setCartItems] = useState(storedCartItems);
-
-  useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  },[cartItems])
+  const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (item) => {
     const itemIndex = cartItems.findIndex((cartItem) => cartItem.id === item.id);
