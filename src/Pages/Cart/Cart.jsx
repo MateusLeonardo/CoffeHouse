@@ -6,7 +6,7 @@ import axios from "axios";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
 export function Cart() {
-  const { cartItems, cartSize, updateCartItemQuantity, removeFromCard } =
+  const { cartItems, updateCartItemQuantity, removeFromCard } =
     useCart();
   const [cupomDescontoCard, setCupomDescontoCard] = useState(false);
   const [inputCupomDesconto, setInputCupomDesconto] = useState("");

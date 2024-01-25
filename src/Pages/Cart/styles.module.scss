@@ -1,5 +1,6 @@
 .container {
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
+  max-height: max-content;
   display: flex;
   align-items: center;
   max-width: 1200px;

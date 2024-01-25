@@ -7,7 +7,7 @@ import { useState } from "react";
 import { IoMenu, IoClose } from "react-icons/io5";
 
 export function Header({ menuRef, eventosRef, galeriaRef, scrollToSection }) {
-  const { cartSize } = useCart();
+  const { cartItems } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleToggleMenu = () => {
@@ -50,7 +50,7 @@ export function Header({ menuRef, eventosRef, galeriaRef, scrollToSection }) {
 
           <div>
             <Link to="/carrinho">
-              <Badge size="small" count={cartSize}>
+              <Badge size="small" count={cartItems.length}>
                 <FiShoppingCart size={23} color="#C7C3C0" />
               </Badge>
             </Link>
