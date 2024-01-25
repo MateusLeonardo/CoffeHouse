@@ -83,7 +83,7 @@ export function Cart() {
   };
 
   return (
-    <main>
+    <main className={styles.cartMain}>
       {cartItems.length > 0 ? (
         <section className={`${styles.container} mt80`}>
           <div className={styles.tabelaProdutos}>
@@ -92,7 +92,7 @@ export function Cart() {
               <p>
                 Você tem{" "}
                 <span>
-                  {cartSize} {cartItems.length > 1 ? "itens" : "item"} no
+                  {cartItems.length} {cartItems.length > 1 ? "itens" : "item"} no
                   carrinho
                 </span>
               </p>

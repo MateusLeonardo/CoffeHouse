@@ -6,6 +6,44 @@
   margin: 0 auto;
   padding: 20px;
 }
+.cartMain {
+  background-color: #e4e4e4;
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 500px;
+    height: 400px;
+    background: url('../../assets/GraoCafe.png') no-repeat center;
+    opacity: 60%;
+    top: 0;
+    z-index: -1;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 500px;
+    height: 400px;
+    background: url('../../assets/GraoCafe.png') no-repeat center;
+    right: 0;
+    bottom: 0;
+    opacity: 60%;
+    z-index: -1;
+  }
+}
+
+@media (max-width: 1000px) { 
+  .cartMain {
+    &:before, &::after {
+      display: none;
+    }
+  }
+}
 .tabelaProdutos {
   flex: 2;
   margin: 20px;
