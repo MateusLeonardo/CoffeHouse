@@ -151,6 +151,11 @@
     width: 100%;
   }
 }
+@media(max-width: 1024px) {
+  .sobre {
+    flex-direction: column;
+  }
+}
 
 @media(max-width: 425px) {
   .sobre {
@@ -298,6 +303,12 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .containerMenu .button {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 768px) {
   .sobre {
     flex-direction: column;
@@ -308,7 +319,7 @@
   }
 
   .containerMenu {
-    padding: 20px;
+    padding: 10px;
   }
 
   .eventos {
@@ -335,7 +346,6 @@
 
   .containerMenu .button {
     gap: 1.2rem;
-    justify-content: center;
     
     button {
       padding: 0.875rem 1.2rem;
