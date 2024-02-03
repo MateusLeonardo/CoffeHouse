@@ -47,7 +47,7 @@ export function Header({ menuRef, eventosRef, galeriaRef, scrollToSection }) {
               {location.pathname === "/" ? (
                 <a href="#" onClick={handleScrollToTop}>Home</a>
               ) : (
-                <Link to="/">Home</Link>
+                <Link to="/" onClick={handleToggleMenu}>Home</Link>
               )}
             </li>
             <li>
@@ -68,12 +68,12 @@ export function Header({ menuRef, eventosRef, galeriaRef, scrollToSection }) {
           </ul>
 
           <div>
-            <Link to="/carrinho">
+            <Link to="/carrinho" onClick={handleToggleMenu}>
               <Badge size="small" count={cartItems.length}>
                 <FiShoppingCart size={23} color="#C7C3C0" />
               </Badge>
             </Link>
-            <Link to="/login">
+            <Link to="/login" onClick={handleToggleMenu}>
               <FiUser size={23} color="#C7C3C0" />
             </Link>
           </div>
