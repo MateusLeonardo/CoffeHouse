@@ -1,20 +1,20 @@
 .container {
   max-width: max-content;
   margin: 0 auto;
+  padding-bottom: 2rem;
 
   .title {
     text-align: center;
     position: relative;
-    font-family: 'Amatic SC', sans-serif;
+    font-family: "Amatic SC", sans-serif;
     font-size: 4.2rem;
-    margin-top: 140px;
-    margin-bottom: 2rem;
+    margin-top: 80px;
 
     &::before {
       position: absolute;
       left: -120px;
       top: 50%;
-      content: '';
+      content: "";
       display: inline-block;
       width: 100px;
       height: 2px;
@@ -25,25 +25,37 @@
       position: absolute;
       top: 50%;
       right: -120px;
-      content: '';
+      content: "";
       display: inline-block;
       width: 100px;
       height: 2px;
       background: #000000;
     }
   }
-
 }
 
-@media(max-width: 425px) {
+@media (max-width: 768px) {
+  .container {
+    .title {
+      margin-top: 0;
+      padding-top: 80px;
+
+      &::before,
+      &::after {
+        top: 130px;
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
   .container .title {
     font-size: 2.5rem;
-    margin-top: 80px;
-    margin-bottom: 1.5rem;
 
     &::before,
     &::after {
       width: 70px;
+      top: 110px;
     }
     &::after {
       right: -80px;
@@ -53,5 +65,3 @@
     }
   }
 }
-
-
