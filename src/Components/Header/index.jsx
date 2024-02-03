@@ -1,14 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { FiShoppingCart, FiUser } from "react-icons/fi";
 import { Badge } from "antd";
 import { useCart } from "../CartContext/CartContext";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { IoMenu, IoClose } from "react-icons/io5";
 
 export function Header({ menuRef, eventosRef, galeriaRef, scrollToSection }) {
   const { cartItems } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  console.log(location.pathname);
 
   const handleToggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -17,7 +19,17 @@ export function Header({ menuRef, eventosRef, galeriaRef, scrollToSection }) {
   const handleSectionClick = (ref) => (e) => {
     e.preventDefault();
     scrollToSection(ref);
+    handleToggleMenu()
   };
+
+  const handleScrollToTop = (e) => {
+    e.preventDefault();
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
+    handleToggleMenu()
+  }
 
   return (
     <header className={styles.header}>
@@ -33,7 +45,11 @@ export function Header({ menuRef, eventosRef, galeriaRef, scrollToSection }) {
         <nav className={`${styles.navMenu} ${menuOpen && styles.active}`}>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              {location.pathname === "/" ? (
+                <a href="#" onClick={handleScrollToTop}>Home</a>
+              ) : (
+                <Link to="/">Home</Link>
+              )}
             </li>
             <li>
               <a href="#menu" onClick={handleSectionClick(menuRef)}>
@@ -41,10 +57,14 @@ export function Header({ menuRef, eventosRef, galeriaRef, scrollToSection }) {
               </a>
             </li>
             <li>
-              <a href="#eventos" onClick={handleSectionClick(eventosRef)}>Eventos</a>
+              <a href="#eventos" onClick={handleSectionClick(eventosRef)}>
+                Eventos
+              </a>
             </li>
             <li>
-              <a href="#galeria" onClick={handleSectionClick(galeriaRef)}>Galeria</a>
+              <a href="#galeria" onClick={handleSectionClick(galeriaRef)}>
+                Galeria
+              </a>
             </li>
           </ul>
 
