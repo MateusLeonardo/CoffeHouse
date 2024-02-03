@@ -3,14 +3,13 @@ import styles from "./styles.module.scss";
 import { FiShoppingCart, FiUser } from "react-icons/fi";
 import { Badge } from "antd";
 import { useCart } from "../CartContext/CartContext";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { IoMenu, IoClose } from "react-icons/io5";
 
 export function Header({ menuRef, eventosRef, galeriaRef, scrollToSection }) {
   const { cartItems } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
-  console.log(location.pathname);
 
   const handleToggleMenu = () => {
     setMenuOpen(!menuOpen);
