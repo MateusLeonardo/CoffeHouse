@@ -5,10 +5,10 @@ import styles from "./styles.module.scss";
 import { CiFaceSmile, CiCalendarDate } from "react-icons/ci";
 import { PiCoffeeThin } from "react-icons/pi";
 
-import mulherTomandoCafe from "../../assets/mulherTomandoCafé.png";
+import mulherTomandoCafe from "../../assets/mulherTomandoCafé.webp";
 import { CardMenu } from "../../Components/CardMenu";
-import cafeEvento1 from "../../assets/cafeEvento1.jpg";
-import cafeEvento2 from "../../assets/cafeEvento2.jpg";
+import cafeEvento1 from "../../assets/cafeEvento1.webp";
+import cafeEvento2 from "../../assets/cafeEvento2.webp";
 import { useEffect, useState } from "react";
 import { Slider } from "../../Components/Slider";
 import { data } from "../../../SliderImgs";
