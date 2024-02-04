@@ -1,4 +1,11 @@
- const arrayItens = [
+import cafe1 from "./src/assets/ItemsMenu/Cafe1.webp";
+import cafe2 from "./src/assets/ItemsMenu/Cafe2.webp";
+import cafe3 from "./src/assets/ItemsMenu/Cafe3.webp";
+import cafe4 from "./src/assets/ItemsMenu/Cafe4.webp";
+import cafe5 from "./src/assets/ItemsMenu/Cafe5.webp";
+import cafe6 from "./src/assets/ItemsMenu/Cafe6.webp";
+
+const arrayItens = [
   {
     id: 1,
     itemNome: "Rosbife e Queijo Provolone",
@@ -70,10 +77,9 @@
     itemNome: "Café expresso",
     itemDescricao:
       "Fatias de pão torrado cobertas com abacate amassado e temperado com sal, pimenta e outros ingredientes opcionais.",
-    itemImagem:
-      "https://img.freepik.com/fotos-gratis/close-up-vista-de-sementes-de-cafe-marrom-com-cafe-no-escuro_179666-32787.jpg?w=1380&t=st=1701404454~exp=1701405054~hmac=f9c64e5811ce401849cc200c58a2084064c5cc0cc13fde27eff83e40c5daa7f0",
+    itemImagem: cafe1,
     itemPreco: 5.45,
-    itemAvaliacao: "4.3",
+    itemAvaliacao: "4.5",
     categoria: "cafe",
   },
   {
@@ -81,10 +87,9 @@
     itemNome: "Cappuccino",
     itemDescricao:
       "Fatias de pão torrado cobertas com abacate amassado e temperado com sal, pimenta e outros ingredientes opcionais.",
-    itemImagem:
-      "https://img.freepik.com/fotos-gratis/copo-de-cafe-na-tabela-no-cafe_1232-2585.jpg?w=1380&t=st=1701404507~exp=1701405107~hmac=9e286e3debc8198f6f2e07b36384fe2859d3158e195fdb88d713fc22dbaa781b",
+    itemImagem: cafe2,
     itemPreco: 4.99,
-    itemAvaliacao: "4.3",
+    itemAvaliacao: "4.7",
     categoria: "cafe",
   },
   {
@@ -92,10 +97,9 @@
     itemNome: "Mocha",
     itemDescricao:
       "Fatias de pão torrado cobertas com abacate amassado e temperado com sal, pimenta e outros ingredientes opcionais.",
-    itemImagem:
-      "https://img.freepik.com/fotos-gratis/cappuccino-em-um-copo-chique-com-um-bolo_78826-3326.jpg?w=1380&t=st=1701404773~exp=1701405373~hmac=f47f49796dbf399d00b7e98833ca1742c088f79e6ec772a8d48ccd999f002f84",
+    itemImagem: cafe3,
     itemPreco: 7.99,
-    itemAvaliacao: "4.3",
+    itemAvaliacao: "4.9",
     categoria: "cafe",
   },
   {
@@ -103,10 +107,9 @@
     itemNome: "Latte",
     itemDescricao:
       "Fatias de pão torrado cobertas com abacate amassado e temperado com sal, pimenta e outros ingredientes opcionais.",
-    itemImagem:
-      "https://img.freepik.com/fotos-gratis/chavena-de-cafe-com-uma-lamina-de-trigo-desenhado-na-espuma_1232-1214.jpg?w=1380&t=st=1702790518~exp=1702791118~hmac=06a81586ec14bb96fecdf39685599da87de7d01c7a22a5958773d7e8f46e4320",
+    itemImagem: cafe4,
     itemPreco: 12,
-    itemAvaliacao: "4.3",
+    itemAvaliacao: "4.9",
     categoria: "cafe",
   },
   {
@@ -114,10 +117,9 @@
     itemNome: "Macchiato",
     itemDescricao:
       "Fatias de pão torrado cobertas com abacate amassado e temperado com sal, pimenta e outros ingredientes opcionais.",
-    itemImagem:
-      "https://img.freepik.com/fotos-gratis/deliciosa-xicara-de-cafe-de-qualidade_23-2150691369.jpg?w=1380&t=st=1702790625~exp=1702791225~hmac=d1113b1793f1d917520efddc78d8803276e0c9519b9b012e710f34bdd3f3b139",
+    itemImagem: cafe5,
     itemPreco: 11.5,
-    itemAvaliacao: "4.3",
+    itemAvaliacao: "4.7",
     categoria: "cafe",
   },
   {
@@ -125,10 +127,9 @@
     itemNome: "Duplo",
     itemDescricao:
       "Fatias de pão torrado cobertas com abacate amassado e temperado com sal, pimenta e outros ingredientes opcionais.",
-    itemImagem:
-      "https://img.freepik.com/fotos-gratis/deliciosa-xicara-de-cafe-de-qualidade_23-2150691369.jpg?w=1380&t=st=1702790625~exp=1702791225~hmac=d1113b1793f1d917520efddc78d8803276e0c9519b9b012e710f34bdd3f3b139",
+    itemImagem: cafe6,
     itemPreco: 9,
-    itemAvaliacao: "4.3",
+    itemAvaliacao: "5.0",
     categoria: "cafe",
   },
   {
@@ -199,5 +200,4 @@
   },
 ];
 
-
-export default arrayItens
+export default arrayItens;
