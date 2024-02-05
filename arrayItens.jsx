@@ -76,7 +76,7 @@ const arrayItens = [
     id: 7,
     itemNome: "Café expresso",
     itemDescricao:
-      "Fatias de pão torrado cobertas com abacate amassado e temperado com sal, pimenta e outros ingredientes opcionais.",
+      "Originário da Itália, o espresso é conhecido por sua crema dourada e consistência encorpada, geralmente servido em pequenas xícaras.",
     itemImagem: cafe1,
     itemPreco: 5.45,
     itemAvaliacao: "4.5",
@@ -86,7 +86,7 @@ const arrayItens = [
     id: 8,
     itemNome: "Cappuccino",
     itemDescricao:
-      "Fatias de pão torrado cobertas com abacate amassado e temperado com sal, pimenta e outros ingredientes opcionais.",
+      "Originária da Itália, essa bebida é conhecida por sua cremosidade e sabor equilibrado, geralmente servido em uma xícara maior que o espresso.",
     itemImagem: cafe2,
     itemPreco: 4.99,
     itemAvaliacao: "4.7",
@@ -96,7 +96,7 @@ const arrayItens = [
     id: 9,
     itemNome: "Mocha",
     itemDescricao:
-      "Fatias de pão torrado cobertas com abacate amassado e temperado com sal, pimenta e outros ingredientes opcionais.",
+      "Originário da Arábia, o mocha ganhou popularidade em todo o mundo como uma opção de café indulgente e reconfortante.",
     itemImagem: cafe3,
     itemPreco: 7.99,
     itemAvaliacao: "4.9",
@@ -106,7 +106,7 @@ const arrayItens = [
     id: 10,
     itemNome: "Latte",
     itemDescricao:
-      "Fatias de pão torrado cobertas com abacate amassado e temperado com sal, pimenta e outros ingredientes opcionais.",
+      "Originário da Itália, o latte é apreciado por sua textura suave e sabor equilibrado, geralmente servido em uma xícara grande.",
     itemImagem: cafe4,
     itemPreco: 12,
     itemAvaliacao: "4.9",
@@ -116,7 +116,7 @@ const arrayItens = [
     id: 11,
     itemNome: "Macchiato",
     itemDescricao:
-      "Fatias de pão torrado cobertas com abacate amassado e temperado com sal, pimenta e outros ingredientes opcionais.",
+      "O macchiato é uma bebida de café que consiste em uma dose de espresso 'manchada' com uma pequena quantidade de espuma de leite vaporizado.",
     itemImagem: cafe5,
     itemPreco: 11.5,
     itemAvaliacao: "4.7",
@@ -126,7 +126,7 @@ const arrayItens = [
     id: 12,
     itemNome: "Duplo",
     itemDescricao:
-      "Fatias de pão torrado cobertas com abacate amassado e temperado com sal, pimenta e outros ingredientes opcionais.",
+      "O espresso duplo é apreciado por aqueles que desejam uma dose extra de energia e uma experiência de sabor mais intensa.",
     itemImagem: cafe6,
     itemPreco: 9,
     itemAvaliacao: "5.0",
