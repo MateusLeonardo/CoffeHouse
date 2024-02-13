@@ -26,6 +26,7 @@ export function MenuItem({ response }) {
 
   return (
     <div className={styles.container}>
+      <div>
       <div className={styles.itemImg}>
         <span>
           {response.itemAvaliacao} <FaStar color="#fd9d08" />
@@ -40,6 +41,7 @@ export function MenuItem({ response }) {
                 }).format(response.itemPreco)}</span>
         </h3>
         <p>{response.itemDescricao}</p>
+      </div>
       </div>
       <button onClick={handleSelectItem}>Pedir Agora <FiShoppingCart /></button>
     </div>
