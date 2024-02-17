@@ -33,7 +33,7 @@ export function Header({ menuRef, eventosRef, galeriaRef, scrollToSection }) {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <p>Coffee House</p>
+        <Link to="/" className={styles.logo}>Coffee House</Link>
 
         {menuOpen ? (
           <IoClose size={35} color="#F5F6F6" onClick={handleToggleMenu} />
